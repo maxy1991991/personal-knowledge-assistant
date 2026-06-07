@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { Aboutme } from './Aboutme.tsx'
-import {Goals} from './goals.tsx'
+import {Goals} from './Goals.tsx'
+import {Home} from './Home.tsx'
+import { Chatwidget } from './Chatwidget.tsx'
 
-function Home() {
-  return <h1>Hello, my name is Max</h1>
-}
 
 export function App() {
   return (
@@ -17,6 +16,7 @@ export function App() {
       <nav>
         <Link to="/">Home</Link> | <Link to="/aboutme">About Me</Link> | <Link to='/goals'>goals</Link>
       </nav>
+      <Chatwidget/>
     </BrowserRouter>
   )
 }
