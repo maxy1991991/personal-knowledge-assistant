@@ -49,14 +49,32 @@ img {
 
 .chatwidget {
     position: fixed;
-    bottom: 0px;
-    right: 0px;
+    bottom: 20px;
+    right: 20px;
+    width: 280px;
+    max-height: 400px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.chatwidget h3 {
+    display:flex;
+    justify-content: center;
 }
 
 .chathistory {
-    overflow: auto;
-    max-height: 100px;
-    border-color:#333;
-    border-width: 1px;
-    border-style: solid;
+    overflow-y: auto;
+    max-height: 200px;
+    padding: 0.8rem;
 }
+
+.chatwidget button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+

@@ -3,7 +3,7 @@ import { GoogleGenAI } from '@google/genai';
 import resume from './knowledge/resume.md?raw'
 import interests from './knowledge/interests.md?raw'
 
-const ai = new GoogleGenAI({apiKey: ""}); 
+const ai = new GoogleGenAI({apiKey: import.meta.env.VITE_GEMINI_API_KEY});
 
 const SYSTEM_PROMPT = `You are a friendly assistant that answers questions about Max.
 
@@ -36,12 +36,13 @@ async function askWidgetQuestion(userQuestion: string) {
 
 
 export function Chatwidget() {
-    let fakemessages = [
-        { text: "Hi", sender: "User", timestamp: 12312 },
-        { text: "Hi", sender: "Bot", timestamp: 23222 }
-    ]
-    
-    const [messages, setMessages] = useState(fakemessages)
+    type Message = {
+        text: string
+        sender: string
+        timestamp: number
+    }
+
+    const [messages, setMessages] = useState<Message[]>([])
     const [input, setInput] = useState("")
 
     async function handleSend(e: React.FormEvent) {
@@ -56,7 +57,7 @@ export function Chatwidget() {
         const aiText = await askWidgetQuestion(currentInput); 
         
         const AiResponse = { text: aiText, sender: "Bot", timestamp: Date.now() };
-        setMessages(prev => [...prev, AiResponse]);
+        setMessages((prev) => [...prev, AiResponse]);
     }
 
     return (
@@ -77,6 +78,7 @@ export function Chatwidget() {
                 })}
             </div>
             <input
+                id="chatwidgetinput"
                 type="text"
                 placeholder="Have a question?"
                 value={input}
