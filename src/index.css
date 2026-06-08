@@ -61,12 +61,17 @@ img {
 .chatwidget h3 {
     display:flex;
     justify-content: center;
+    background-color: #e8e8e8;
+    margin:0;
+    padding: 5px;
+    border-radius: 8px 8px 0 0;
 }
 
 .chathistory {
+    background-color: #fafafa;
     overflow-y: auto;
-    max-height: 200px;
-    padding: 0.8rem;
+    height: 100px;
+    padding: 0.8rem;    
 }
 
 .chatwidget button {

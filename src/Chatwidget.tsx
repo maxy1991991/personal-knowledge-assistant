@@ -62,9 +62,9 @@ export function Chatwidget() {
 
     return (
         <form onSubmit={handleSend} className="chatwidget">
-            <h3>Ask About Max</h3>
+            <h3>Learn More About Max</h3>
             <div className="chathistory">
-                <h4>Chat history</h4>
+
                 {messages.map((msg) => {
                     if (msg.sender === "User") {
                         return <p key={msg.timestamp}>User: {msg.text}</p>
