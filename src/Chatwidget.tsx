@@ -3,7 +3,7 @@ import { GoogleGenAI } from '@google/genai';
 import resume from './knowledge/resume.md?raw'
 import interests from './knowledge/interests.md?raw'
 
-const ai = new GoogleGenAI({apiKey: "AIzaSyCPCfeXSZL5vxZXB9xITD5gCl2SH5Bk4y0"}); 
+const ai = new GoogleGenAI({apiKey: ""}); 
 
 const SYSTEM_PROMPT = `You are a friendly assistant that answers questions about Max.
 
@@ -47,7 +47,8 @@ export function Chatwidget() {
     async function handleSend(e: React.FormEvent) {
         e.preventDefault();
         const newUserMessage = { text: input, sender: "User", timestamp: Date.now() };
-        setMessages(prev => [...prev, newUserMessage]);
+
+        setMessages([...messages, newUserMessage]);
         
         const currentInput = input;
         setInput("");
