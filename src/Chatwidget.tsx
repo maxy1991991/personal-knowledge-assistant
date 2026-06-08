@@ -3,25 +3,59 @@ import { GoogleGenAI } from '@google/genai';
 import resume from './knowledge/resume.md?raw'
 import interests from './knowledge/interests.md?raw'
 
+const ai = new GoogleGenAI({apiKey: "AIzaSyCPCfeXSZL5vxZXB9xITD5gCl2SH5Bk4y0"}); 
 
-askWidgetQuestion();
+const SYSTEM_PROMPT = `You are a friendly assistant that answers questions about Max.
+
+Here is everything you know about Max:
+
+${resume}
+
+${interests}
+
+Only answer based on this information. If you don't know something, say "I don't have that information. You can ask me about Max's education, projects, skills, or personal interests!"`
+
+
+async function askWidgetQuestion(userQuestion: string) {
+    try {
+        const response = await ai.models.generateContent({
+            model: 'gemini-2.5-flash',
+            contents: userQuestion, 
+            config: {
+                systemInstruction: SYSTEM_PROMPT, 
+            }
+        });
+
+        console.log("AI Response:", response.text);
+        return response.text || "No response received";  // ← Add default
+    } catch (error) {
+        console.error("SDK Query Failed:", error);
+        return "Sorry, I encountered an error. Please try again.";
+    }
+}
+
 
 export function Chatwidget() {
     let fakemessages = [
         { text: "Hi", sender: "User", timestamp: 12312 },
-        { text: "Die", sender: "Bot", timestamp: 23222 }
+        { text: "Hi", sender: "Bot", timestamp: 23222 }
     ]
     
     const [messages, setMessages] = useState(fakemessages)
     const [input, setInput] = useState("")
 
-    function handleSend(e: React.SubmitEvent) {
+    async function handleSend(e: React.FormEvent) {
         e.preventDefault();
-        const newmessage = { text: input, sender: "User", timestamp: Date.now() }
-        setMessages([...messages, newmessage]);
-        setInput(""); 
-        const clickedButton = e.nativeEvent.submitter as HTMLButtonElement;
-        console.log(clickedButton.type);
+        const newUserMessage = { text: input, sender: "User", timestamp: Date.now() };
+        setMessages(prev => [...prev, newUserMessage]);
+        
+        const currentInput = input;
+        setInput("");
+
+        const aiText = await askWidgetQuestion(currentInput); 
+        
+        const AiResponse = { text: aiText, sender: "Bot", timestamp: Date.now() };
+        setMessages(prev => [...prev, AiResponse]);
     }
 
     return (
