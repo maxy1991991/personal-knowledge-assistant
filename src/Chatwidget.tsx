@@ -1,4 +1,10 @@
 import { useState } from "react" 
+import { GoogleGenAI } from '@google/genai';
+import resume from './knowledge/resume.md?raw'
+import interests from './knowledge/interests.md?raw'
+
+
+askWidgetQuestion();
 
 export function Chatwidget() {
     let fakemessages = [
