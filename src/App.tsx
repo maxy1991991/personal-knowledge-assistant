@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
 import { Aboutme } from './Aboutme.tsx'
-import { Goals } from './goals.tsx'
+import { Goals } from './Goals.tsx'
 import { Home } from './Home.tsx'
 import { Chatwidget } from './Chatwidget.tsx'
 
@@ -10,7 +10,7 @@ function AppContent() {
   return (
     <>
       <nav>
-        <Link to="/">Home</Link> | <Link to="/aboutme">About Me</Link> | <Link to='/goals'>goals</Link>
+        <Link to="/">Home</Link> | <Link to="/aboutme">About Me</Link> | <Link to='/goals'>Goals</Link>
       </nav>  
       <div key={location.pathname} className="page-transition">
         <Routes>
