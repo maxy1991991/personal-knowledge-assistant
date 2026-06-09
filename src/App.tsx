@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
 import { Aboutme } from './Aboutme.tsx'
-import { Goals } from './Goals.tsx'
+import { Goals } from './goals.tsx'
 import { Home } from './Home.tsx'
 import { Chatwidget } from './Chatwidget.tsx'
 
