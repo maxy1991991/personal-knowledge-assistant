@@ -1,4 +1,8 @@
-# Maxwell Yang - Background
+# Maxwell Yang
+
+## Basic Background
+- **Birthplace:** Born in Portland, Oregon
+- **Age:** 21 years old
 
 ## Contact Information
 - **Email:** yangmax@oregonstate.edu
