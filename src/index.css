@@ -16,7 +16,8 @@ body {
 
 nav {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
+  align-items: center; 
   background-color: white;
   padding: 1rem 2rem;
   margin-bottom: 2rem;
@@ -156,7 +157,7 @@ ol {
 
 
 .Links a{
-    display: block;
+    display:block;
     background-color: #ffffff;
     margin: 20px;
     padding: 12px;
@@ -164,5 +165,18 @@ ol {
     border-style: solid;
     border-color: #d1cfcf;
     border-width: 2px;
+}
+
+.buttondisplay {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin:0px;
+  position: relative;
+  left: -60px;
+}
+
+.buttondisplay img {
+  max-width: 90px; 
 }
 
