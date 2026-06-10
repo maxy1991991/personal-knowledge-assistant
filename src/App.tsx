@@ -4,7 +4,7 @@ import { Goals } from './Goals.tsx'
 import { Home } from './Home.tsx'
 import { Chatwidget } from './Chatwidget.tsx'
 import {Experience} from './Experience.tsx'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useQuery } from '@tanstack/react-query'
 

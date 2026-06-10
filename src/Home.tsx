@@ -3,16 +3,7 @@ import canyon from './assets/canyon.webp'
 import soccer from './assets/soccer.webp'
 import vacation from './assets/vacation.webp'
 
-async function pokemon() {
-  const response=await fetch('https://pokeapi.co/api/v2/pokemon/ditto');
-  const data=await response.json();
-  const sprite=data['sprites']['front_default'];
-  return (
-    <div>
-      <img src={sprite}/>
-    </div>
-  )
-}
+
 
 export function Home() {
     return (
